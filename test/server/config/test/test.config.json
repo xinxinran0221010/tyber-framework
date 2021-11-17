@@ -1,0 +1,11 @@
+{
+  "test": "a",
+  "someConfig": {
+    "myService": {
+      "result": "config result"
+    }
+  },
+  "restCallProxy": {
+    "*": "http://localhost:8888"
+  }
+}

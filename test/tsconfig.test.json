@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2017",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "preserveConstEnums": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "importHelpers": true,
+    "declaration": false,
+    "rootDir": ".",
+    "outDir": ".",
+    "lib": [
+      "es6",
+      "dom",
+      "es7"
+    ]
+  },
+  "include": ["server"],
+  "exclude": [
+    "node_modules",
+    "src",
+    "lib"
+  ]
+}
