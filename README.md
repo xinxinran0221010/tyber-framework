@@ -1,5 +1,5 @@
-# qkids-koa-resty
-> 这是一个使用`TypeScript`编写的，基于`koa`、`bearcat`的rest api框架。
+# Tyber-Framework
+> 这是一个使用`TypeScript`编写的，基于`koa`、`bearcat`的restful api微服务框架。
 
 ## 目录
 + [项目简介](#项目简介)
