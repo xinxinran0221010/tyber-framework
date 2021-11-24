@@ -17,7 +17,7 @@ import {ServerContext, ServerContextConfiguration} from "./ServerContext";
 // noinspection JSUnusedGlobalSymbols
 export abstract class ServerApp implements IServerApp {
 
-    private app: Koa = new Koa<IServerContextState, IServerAppContext>();
+    private koaInstance: Koa = new Koa<IServerContextState, IServerAppContext>();
     private httpServer: Server;
     private options: IKoaRestyServerSettings = null;
 
@@ -32,7 +32,7 @@ export abstract class ServerApp implements IServerApp {
     }
 
     getKoa(): Koa {
-        return this.app;
+        return this.koaInstance;
     }
 
     getServerOptions(): IKoaRestyServerSettings {
@@ -103,9 +103,9 @@ export abstract class ServerApp implements IServerApp {
                 serverContext.getLowPriorityLoader().forEach(loader => loader.load(this));
 
                 const mainDispatcher = serverContext.getDispatcher();
-                this.app.use(mainDispatcher.makeDispatcher());
+                this.koaInstance.use(mainDispatcher.makeDispatcher());
 
-                this.httpServer = createServer(this.app.callback()).listen(serverSettings.port);
+                this.httpServer = createServer(this.koaInstance.callback()).listen(serverSettings.port);
                 LoggerUtils.getLogger().info('Tyber Rest Server run in [%s] mode, listening [%s]', appContext.getEnv(), serverSettings.port);
 
                 serverContext.serverStarted();

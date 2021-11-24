@@ -1,5 +1,5 @@
 import {IDecorator} from "./IDecorator";
-import {BeanUtils, TypeUtils, Assert} from "@utils";
+import {BeanUtils, TypeUtils, Assert, ParameterInjectInfo} from "@utils";
 
 export abstract class BaseDecorator implements IDecorator {
 
@@ -21,6 +21,14 @@ export abstract class BaseDecorator implements IDecorator {
 
     protected beanFunctionGetter(): (target) => (target?: unknown) => unknown {
         return () => null;
+    }
+
+    protected getDecoratorInfo(instanceTarget: unknown, defaultValue?: unknown) {
+        return TypeUtils.getDecoratorInfo(instanceTarget, this, defaultValue);
+    }
+
+    protected utilGetFuncParamInfo(targetFunc: CallableFunction, targetObject: Record<string | symbol, unknown>, errorFunctionName?: string): ParameterInjectInfo[] {
+        return TypeUtils.getParameterInfo(targetFunc, targetObject, errorFunctionName);
     }
 
     // noinspection JSUnusedGlobalSymbols
