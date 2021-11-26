@@ -27,6 +27,12 @@ export abstract class BaseDecorator implements IDecorator {
         return TypeUtils.getDecoratorInfo(instanceTarget, this, defaultValue);
     }
 
+    // noinspection JSUnusedGlobalSymbols
+    protected utilGetFuncParamNames(targetFunc: CallableFunction): string[] {
+        return TypeUtils.getParameterNames(targetFunc);
+    }
+
+    // noinspection JSUnusedGlobalSymbols
     protected utilGetFuncParamInfo(targetFunc: CallableFunction, targetObject: Record<string | symbol, unknown>, errorFunctionName?: string): ParameterInjectInfo[] {
         return TypeUtils.getParameterInfo(targetFunc, targetObject, errorFunctionName);
     }

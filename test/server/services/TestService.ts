@@ -1,4 +1,4 @@
-import {InitializingBean, Logger, ILogger, LoggerType, Service, ConfigValue} from "../../../lib";
+import {InitializingBean, Logger, ILogger, LoggerType, Service, ConfigValue} from "../../../lib/src";
 
 @Service()
 @Logger()

@@ -1,4 +1,4 @@
-import {BaseDecorator} from "../../../lib/src";
+import {BaseDecorator} from "../../../lib/src/decorators";
 
 class TestDecoratorInfo extends BaseDecorator {
     getDecoratorSign(): string {
